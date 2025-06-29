@@ -1,0 +1,324 @@
+@import '../../_css/queries.scss';
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin-top: 100px;
+
+  @include mid-break {
+    gap: 60px;
+  }
+}
+
+// Travel Hero Section
+.travelHero {
+  text-align: center;
+  padding: 80px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  margin-bottom: 60px;
+
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    
+    @include mid-break {
+      font-size: 2.5rem;
+    }
+  }
+
+  p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    
+    @include mid-break {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.searchBox {
+  display: flex;
+  max-width: 500px;
+  margin: 0 auto;
+  gap: 10px;
+  
+  @include mid-break {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  input {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    outline: none;
+    
+    &::placeholder {
+      color: #999;
+    }
+  }
+
+  button {
+    padding: 15px 30px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: #ff5252;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Travel Features
+.travelFeatures {
+  text-align: center;
+  margin: 60px 0;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
+    
+    @include mid-break {
+      font-size: 2rem;
+    }
+  }
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-10px);
+  }
+
+  .featureIcon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  p {
+    color: #666;
+    line-height: 1.6;
+  }
+}
+
+// Popular Destinations
+.popularDestinations {
+  margin: 60px 0;
+
+  h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+    
+    @include mid-break {
+      font-size: 2rem;
+    }
+  }
+}
+
+.destinationsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  
+  @include mid-break {
+    grid-template-columns: 1fr;
+  }
+}
+
+.travelDestination {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.destinationImage {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .priceTag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ff6b6b;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+}
+
+.destinationContent {
+  padding: 25px;
+
+  h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+}
+
+.bookButton {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  }
+}
+
+// Travel CTA
+.travelCTA {
+  text-align: center;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+  color: white;
+  padding: 60px 40px;
+  border-radius: 20px;
+  margin: 60px 0;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    
+    @include mid-break {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+  }
+}
+
+.ctaButton {
+  background: white;
+  color: #ff6b6b;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+  }
+}
+
+// Page Travel Content
+.pageTravelContent {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  margin: 40px 0;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+}
+
+.travelTips {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+
+  h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 8px 0;
+      color: #666;
+      position: relative;
+      padding-left: 25px;
+
+      &:before {
+        content: "✈️";
+        position: absolute;
+        left: 0;
+        top: 8px;
+      }
+    }
+  }
+}
