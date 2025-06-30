@@ -1,6 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 import { Jost } from 'next/font/google'
+import { headers } from 'next/headers'
 
 import { AdminBar } from './_components/AdminBar'
 import { Footer } from './_components/Footer'
@@ -17,6 +18,10 @@ const jost = Jost({
 })
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const headersList = headers()
+  const pathname = headersList.get('x-pathname') || ''
+  const isTravel = pathname.startsWith('/travel')
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -26,7 +31,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body className={jost.variable}>
         <Providers>
-          <AdminBar />
+          {!isTravel && <AdminBar />}
           <main className="main">{children}</main>
           {/* @ts-expect-error */}
           <Footer />

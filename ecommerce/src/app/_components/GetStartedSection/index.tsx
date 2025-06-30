@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-const bgUrl = "/assets/images/plane-wing.jpg"; // Use your provided image path
+interface GetStartedSectionProps {
+  backgroundImage: string;
+}
 
 const tabOptions = [
   { label: 'Flights', icon: '✈️' },
@@ -21,7 +23,7 @@ const fareTypes = [
   'Doctors & Nurses Fares',
 ];
 
-export default function GetStartedSection() {
+export default function GetStartedSection({ backgroundImage }: GetStartedSectionProps) {
   const [activeTab, setActiveTab] = useState(0);
   const [tripType, setTripType] = useState('oneway');
   const [fareType, setFareType] = useState('Regular Fares');
@@ -36,7 +38,7 @@ export default function GetStartedSection() {
       right: '50%',
       marginLeft: '-50vw',
       marginRight: '-50vw',
-      background: `url(${bgUrl}) center/cover no-repeat`,
+      background: `url(${backgroundImage}) center/cover no-repeat`,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -59,7 +61,7 @@ export default function GetStartedSection() {
           <div style={{ fontSize: 72, fontWeight: 900, letterSpacing: 2, marginBottom: 32, marginTop: 0, lineHeight: 1.1 }}>GET STARTED</div>
         </div>
         {/* Tabs */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginBottom: 24, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 16, marginBottom: 32, flexWrap: 'wrap' }}>
           {tabOptions.map((tab, idx) => (
             <button
               key={tab.label}
@@ -105,7 +107,7 @@ export default function GetStartedSection() {
           >Round Trip</span>
         </div>
         {/* Inputs */}
-        <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginBottom: 16, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginBottom: 16, flexWrap: 'wrap' }}>
           <input placeholder="From Origin" style={{ padding: 16, borderRadius: 6, border: 'none', minWidth: 200, fontSize: 18, marginRight: 4 }} />
           <input placeholder="To Destination" style={{ padding: 16, borderRadius: 6, border: 'none', minWidth: 200, fontSize: 18, marginRight: 4 }} />
           <input type="date" style={{ padding: 16, borderRadius: 6, border: 'none', minWidth: 180, fontSize: 18, marginRight: 4 }} />
@@ -123,7 +125,7 @@ export default function GetStartedSection() {
           </select>
         </div>
         {/* Fare type */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 8, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 16, marginBottom: 16, flexWrap: 'wrap', alignItems: 'center' }}>
           <span style={{ color: '#fff', fontWeight: 600, fontSize: 16, marginRight: 8 }}>Select A Fare Type:</span>
           {fareTypes.map(type => (
             <label key={type} style={{ color: '#fff', fontWeight: 500, fontSize: 15, display: 'flex', alignItems: 'center', gap: 4 }}>
@@ -167,7 +169,7 @@ export default function GetStartedSection() {
           }}>Search</button>
         </div>
         {/* Info text */}
-        <div style={{ color: '#fff', fontSize: 12, textAlign: 'center', marginTop: 24, opacity: 0.8 }}>
+        <div style={{ textAlign: 'center', color: '#fff', fontSize: 14, opacity: 0.8, maxWidth: 800, margin: '32px auto 0', padding: '0 16px' }}>
           The information related to booking is provided through API integration from various Online Travel Aggregators (OTA). Other OTAs interested in integration with Incredible India Digital Portal may contact the Ministry of Tourism.
         </div>
       </div>

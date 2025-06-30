@@ -11,6 +11,8 @@ import dynamic from 'next/dynamic'
 import TravelDiariesCarousel from '../../_components/TravelDiariesCarousel'
 import GetStartedSection from '../../_components/GetStartedSection'
 import CraftsCarousel from '../../_components/CraftsCarousel'
+import TravelFooter from '../../_components/Footer/FooterComponent/TravelFooter'
+import NotificationBanner from '../../_components/NotificationBanner'
 
 // Define Diary and Craft types inline since they are not in payload-types yet
 interface Diary {
@@ -45,28 +47,29 @@ export default async function TravelPage() {
 
   // Use the image with filename 'red-fort-delhi1-attr-hero.jpg' as the hero image
   const heroImage = media.find(m => m.filename === 'red-fort-delhi1-attr-hero.jpg')
-  console.log(heroImage)
   const heroImageUrl = heroImage?.url || ''
-  console.log(heroImageUrl)
+  
+  const footerBg = media.find(m => m.filename === 'footer-background-image.jpg')
+  const footerBgUrl = footerBg?.url || ''
+
+  // Find the flight home page background image
+  const flightBg = media.find(m => m.filename === 'flight-home-page-bg.jpg')
+  const flightBgUrl = flightBg?.url || ''
+  
   // Attractions: use first 4 destinations
   const attractions = destinations.slice(0, 6)
 
   return (
-    <div style={{ background: '#f7f7f7' }}>
-      {/* Hero Section as Video */}
-      {videoUrl && heroImageUrl && <HeroCarousel videoUrl={videoUrl} heroImageUrl={heroImageUrl} />}
-      {/* Attractions Carousel Section */}
-      <AttractionsCarousel attractions={attractions} backgroundImage={heroImageUrl} />
-      {/* Travel Diaries Section */}
-      <TravelDiariesCarousel diaries={diaries} />
-      
-      <CraftsCarousel crafts={crafts} />
-
-      {/* Get Started Section */}
-      <GetStartedSection />
-
-      {/* Thematic Sections (Itineraries, Crafts, etc.) */}
-
-    </div>
+    <>
+      <NotificationBanner />
+      <div style={{ background: '#f7f7f7' }}>
+        {videoUrl && heroImageUrl && <HeroCarousel videoUrl={videoUrl} heroImageUrl={heroImageUrl} />}
+        <AttractionsCarousel attractions={attractions} backgroundImage={heroImageUrl} />
+        <TravelDiariesCarousel diaries={diaries} />
+        <CraftsCarousel crafts={crafts} />
+        <GetStartedSection backgroundImage={flightBgUrl} />
+      </div>
+      <TravelFooter footerBgUrl={footerBgUrl} />
+    </>
   )
 } 
